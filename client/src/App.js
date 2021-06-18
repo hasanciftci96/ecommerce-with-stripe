@@ -1,7 +1,7 @@
 import "./App.css"
 import React, { useState, useEffect } from "react"
 import { commerce } from "./lib/commerce"
-import { Products, Navbar } from "./components"
+import { Products, Navbar, Cart } from "./components"
 
 function App() {
   const [products, setProducts] = useState([])
@@ -28,13 +28,14 @@ function App() {
     fetchCart()
   }, [])
 
-  console.log(products)
+  // console.log(products)
   console.log(cart)
 
   return (
     <div className="App">
-      <Navbar />
-      <Products products={products} onAddToCart={handleAddCart} />
+      <Navbar totalItems={cart.total_items} />
+      {/* <Products products={products} onAddToCart={handleAddCart} /> */}
+      <Cart cart={cart} />
     </div>
   )
 }
