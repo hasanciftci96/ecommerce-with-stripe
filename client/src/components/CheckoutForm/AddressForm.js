@@ -70,8 +70,8 @@ const AddressForm = ({ checkoutToken, next }) => {
         setShippingSubdivision(Object.keys(subdivisions)[0])
     }
 
-    const fetchShippingOptions = async (checkoutTokenId, country, region = null) => {
-        const options = await commerce.checkout.getShippingOptions(checkoutTokenId, { country, region })
+    const fetchShippingOptions = async (checkoutTokenId, country, stateProvince = null) => {
+        const options = await commerce.checkout.getShippingOptions(checkoutTokenId, { country, region: stateProvince })
 
         console.log("setShippingOptions options list is:   ")
         console.log(options)
